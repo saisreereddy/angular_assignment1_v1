@@ -4,15 +4,13 @@ import { Location } from '@angular/common';
 import { GotHttpService } from '../got-http-service.service';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css'],
+  selector: 'app-view-houses',
+  templateUrl: './view-houses.component.html',
+  styleUrls: ['./view-houses.component.css'],
   providers: [Location]
 })
-export class ViewComponent implements OnInit {
+export class ViewHousesComponent implements OnInit {
 allData: any;
-allKeys: any;
-data: any;
   constructor(private _route: ActivatedRoute, private router: Router, private gotHttpService: GotHttpService , private location: Location) { }
 
   ngOnInit() {
@@ -56,6 +54,7 @@ data: any;
     );
   }
   goBackToPreviousPage(): any {
-        this.location.back();
-      }
+    this.location.back();
+  }
+
 }

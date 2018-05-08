@@ -1,15 +1,57 @@
-<div class="container" style="text-align:center">
-  <div class="row" style="text-align:center">
-    <div class="col-md-12" style="font-size:22px">All Game Of Thrones Components</div>
-    <br><br><br><br>
+
+
+  <div class="container-fluid" style="text-align:center">
+  <div class="row" style="text-align:center"></div>
+    <div class="col-md-12" style="font-size:20px">Application developed using <span><a href="https://anapioficeandfire.com/" class="api_style">An api of fire and ice</a></span></div>
+    <br><br>
+    <div class="col-md-12" style="font-size:18px">Displaying all <span  style="cursor:pointer;"class="api_style" title="Books,characters,houses">Categories </span>of the API</div>
+    <br><br>
+    
   </div>
   <div class="row" style="text-align:center">
-    <div *ngFor="let item of allItems" class="col-md-6">
+    <div>
+        <select class="form-control-custom" [(ngModel)]="selected" (ngModelChange)="onSelect(selected)" placeholder="Filter Category By">
+            <option [ngValue]="undefined"selected>Filter Category By</option>
+          <option value="books">Books</option>
+          <option value="characters">Characters</option>
+          <option value="houses">Houses</option>
+      </select>
+      <br><br>
+      <div *ngFor="let book of allBooks |filter :searchText ;let i=index"> 
+        <div id="books" class="col-md-4">
+        <div *ngIf="allBooks.length==10" class="card red">
+            <h4 class="card-title">Books</h4>
+            <div class="card-header">{{book.name}}</div>
+            <div class="card-body">{{book.publisher}}</div> 
+            <div class="card-footer">{{book.released}} <br/><br/><a [routerLink]="['/view',book.url]" class="btn btn-primary">Details</a></div>
+        
+          </div>
+      </div>
+        <div id="characters" class="col-md-4">
+        <div *ngIf="allCharacters" class="card green">
+            <h4 class="card-title">Characters</h4>
+            <div class="card-header"><div *ngIf="allCharacters[i].name;else templateName">{{allCharacters[i].name}}</div>
+           
+<ng-template  #templateName>Game of thrones charcater.</ng-template></div>
+            <div class="card-body">{{allCharacters[i].gender}}</div> 
+               <div class="card-footer">{{allCharacters[i].culture}} <br/><br/><a [routerLink]="['/viewcharacters',allCharacters[i].url]" class="btn btn-primary">Details</a></div> 
+            
+            </div>
+          </div>
+          <div id="houses" class="col-md-4">
+            <div *ngIf="allHouses.length==10" class="card blue">
+                <h4 class="card-title">Houses</h4>
+                <div class="card-header">{{allHouses[i].name}}</div>
+                <div class="card-body">{{allHouses[i].region}}</div> 
+                   <div class="card-footer">{{allHouses[i].words}}<br><br> <a [routerLink]="['/viewhouses',allHouses[i].url]" class="btn btn-primary">Details</a></div> 
+                
+                </div>
+              </div>
+          
+      </div>
 
 
 
-
-<div>{{item.name}}</div>
 
 
      <!-- <div class="panel panel-default">
@@ -26,7 +68,7 @@
       </div>-->
 
       <br/>
-    </div>
+    
 
   </div>
 

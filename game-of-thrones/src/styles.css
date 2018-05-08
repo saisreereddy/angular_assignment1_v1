@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+.api_style{
+    text-decoration: none;
+    color: crimson;
+}
+.form-control-custom{
+display: block;
+width: 26%;
+margin:0 auto;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+.card{
+    margin-left:2vw;
+    margin-bottom: 2vh;
+    
+}
+.red{
+    border:2px solid indianred;
+}
+.green{
+    border:2px solid chartreuse;
+}
+.blue{
+    border:2px solid lightblue;
+}
+.well_style{
+    width:50%;
+    margin:0 auto;
+    margin-top: 0.5vh !important;
+}
